@@ -13,19 +13,13 @@ enum Actions {
   Add = 'add'
 }
 
-const EmployeesForDepartment = {
-  [Departments.Rnd]: 70,
-  [Departments.Sales]: 70
-};
-
 const generateCommand = () => {
   let department = Departments.Sales;
   if (Math.random() >= 0.5) {
     department = Departments.Rnd;
   }
-  const total = EmployeesForDepartment[department];
   let action = Actions.Delete;
-  if (Math.random() >= 0.5 || total <= 0) {
+  if (Math.random() >= 0.5) {
     action = Actions.Add;
   }
   return { action, department };
